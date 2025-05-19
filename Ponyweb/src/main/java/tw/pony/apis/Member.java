@@ -1,13 +1,14 @@
 package tw.pony.apis;
 
 public class Member {
-	private int id;
-	private String account,cname;
-	private String icon;
-	public int getId() {
+	private long id;
+	private String account, cname;
+	private String icon;	// base64 format
+	
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getAccount() {
@@ -31,6 +32,7 @@ public class Member {
 	
 	@Override
 	public String toString() {
-		return String.format("%s:%s", account,cname);
+		return String.format("%s:%s", account, cname);
 	}
+	
 }
