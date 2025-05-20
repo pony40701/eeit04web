@@ -5,6 +5,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +18,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Ponyutils {
+	public static Connection conn;
+	public static void createConnection() {
+		try {
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/brad", "root", "root");
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+	}
+	
+	
 	public static String loadView(String view) throws Exception {
 		String source = "C:\\Users\\User\\git\\fresh-repo\\Ponyweb\\src\\main\\webapp\\views\\%s.html";
 		String sfile = String.format(source, view);
